@@ -57,6 +57,7 @@ dictionary <- list(
   "Abi" = c("Abischnitt"),
   "Punkte_Mathe" = c("Punkte.hatten.Sie.in.der.Schule.zuletzt.in.Mathematik"),
   "Dr" = c("Dr..zu.machen"),
+  "Sport" = c("Wie.viele.Stunden.pro.Woche.treiben.Sie.Sport."), 
   "Entfernung" = c("entfernt.von.der.Uni"),
   "Dauer" = c("Weg.zur.Uni", "Dauer..in.Minuten"),
   "Partnerschaft" = c("Partner", "Partnerin"),
@@ -151,6 +152,12 @@ check_modifications <- function(df) {
 lapply(datasets, check_modifications)
 
 
+# Apply the division in each data frame
+for (i in seq_along(datasets)) {
+  datasets[[i]]$Abi <- datasets[[i]]$Abi / 10
+}
+
+# If you want to save them back as individual variables:
 df_19 = datasets[[1]]
 df_20 = datasets[[2]]
 df_21 = datasets[[3]]
@@ -158,19 +165,58 @@ df_22 = datasets[[4]]
 df_23 = datasets[[5]]
 df_24 = datasets[[6]]
 
-# List of data frame names
-data_frames <- list(df_19, df_20, df_21, df_22, df_23, df_24)
 
-# Apply the division in each data frame
-for (i in seq_along(data_frames)) {
-  data_frames[[i]]$Abi <- data_frames[[i]]$Abi / 10
-}
 
-# If you want to save them back as individual variables:
-df_19 <- data_frames[[1]]
-df_20 <- data_frames[[2]]
-df_21 <- data_frames[[3]]
-df_22 <- data_frames[[4]]
-df_23 <- data_frames[[5]]
-df_24 <- data_frames[[6]]
+# Apply transformations to each data frame in the list with column existence checks
+datasets <- lapply(datasets, function(df) {
+  
+  # Apply each transformation conditionally based on column existence
+  if ("Schuhgroesse" %in% names(df)) {
+    df <- df %>% mutate(Schuhgroesse = ifelse(between(Schuhgroesse, 31, 52), Schuhgroesse, NA))
+  }
+  
+  if ("Koerpergroesse" %in% names(df)) {
+    df <- df %>% mutate(Koerpergroesse = case_when(
+      Koerpergroesse > 0 & Koerpergroesse <= 3 ~ Koerpergroesse * 100,
+      between(Koerpergroesse, 120, 220) ~ Koerpergroesse,
+      TRUE ~ NA_real_
+    ))
+  }
+  
+  if ("Punkte_Mathe" %in% names(df)) {
+    df <- df %>% mutate(Punkte_Mathe = ifelse(Punkte_Mathe == 0, NA, Punkte_Mathe))
+  }
+  
+  if ("Liegestuetze" %in% names(df)) {
+    df <- df %>% mutate(Liegestuetze = ifelse(between(Liegestuetze, 0, 100), Liegestuetze, NA))
+  }
+  
+  if ("Einstiegsgehalt" %in% names(df)) {
+    df <- df %>%
+      mutate(Einstiegsgehalt = ifelse(Einstiegsgehalt > 30000, Einstiegsgehalt / 12, Einstiegsgehalt)) %>%
+      mutate(Einstiegsgehalt = ifelse(Einstiegsgehalt > 12500, NA, Einstiegsgehalt))
+  }
+  
+  if ("Handy" %in% names(df)) {
+    df <- df %>%
+      mutate(Handy = as.numeric(Handy)) %>%
+      mutate(Handy = ifelse(Handy > 12, NA, Handy))
+  }
+  
+  if ("Sport" %in% names(df)) {
+    df <- df %>% mutate(Sport = ifelse(Sport > 36, NA, Sport))
+  }
+  
+  return(df)
+})
 
+# Check the structure of the transformed datasets to confirm the changes
+str(datasets)
+
+
+df_19 = datasets[[1]]
+df_20 = datasets[[2]]
+df_21 = datasets[[3]]
+df_22 = datasets[[4]]
+df_23 = datasets[[5]]
+df_24 = datasets[[6]]

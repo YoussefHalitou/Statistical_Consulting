@@ -142,3 +142,95 @@ kable(
   caption = paste("Häufigkeitstabelle für Merkmal X = Parteipräferenz, Vergleich Kohorte 2022 (n =", total_22, 
                   ") vs. Kohorte 2023 (n =", total_23, ").")
 )
+
+#Slide 80
+barplot(table(df_19$Partnerschaft), col = "darkred", ylab = "Anzahl")
+barplot(table(df_19$Partnerschaft), col = "darkred", ylab = "Anzahl", )
+
+# Create a frequency table for the Partnerschaft column
+partnerschaft_counts <- table(df_19$Partnerschaft)
+
+# Sort the table in descending order
+partnerschaft_counts <- sort(partnerschaft_counts, decreasing = TRUE)
+
+# Create a bar plot with the sorted table
+barplot(partnerschaft_counts, col = "darkred", ylab = "Anzahl", main = "Sind Sie in einer Partnerschaft?")
+
+
+#Slide 81
+barplot(table(df_19$Partnerschaft) / length(df_19$Partnerschaft), col = "darkred", ylab = "Relative Frequency")
+
+# Create a frequency table for the Partnerschaft column and calculate relative frequencies
+partnerschaft_relative_freq <- table(df_19$Partnerschaft) / length(df_19$Partnerschaft)
+
+# Sort the relative frequencies in descending order
+partnerschaft_relative_freq <- sort(partnerschaft_relative_freq, decreasing = TRUE)
+
+# Create a bar plot with the sorted relative frequencies
+barplot(partnerschaft_relative_freq, col = "darkred", ylab = "Relative Frequency", main = "Partnerschaft Relative Frequency (Descending Order)")
+
+
+
+
+
+
+
+
+
+# Create a frequency table for the Partnerschaft column and calculate relative frequencies
+partnerschaft_relative_freq <- table(df_19$Partnerschaft) / length(df_19$Partnerschaft)
+
+# Sort the relative frequencies in descending order
+partnerschaft_relative_freq <- sort(partnerschaft_relative_freq, decreasing = TRUE)
+
+# Create a bar plot with the sorted relative frequencies and extend the y-axis to 0.6
+barplot(
+  partnerschaft_relative_freq,
+  col = "darkred",
+  ylab = "Relative Frequency",
+  main = "Partnerschaft Relative Frequency (Descending Order)",
+  ylim = c(0, 0.6)  # Extend y-axis limit to 0.6
+)
+
+
+#Slide 82
+barplot(
+  table(df_24$Alkohol), 
+  col = "darkblue", 
+  ylab = "Anzahl", 
+  cex.lab = 1,  # Adjust the value to make it smaller
+  cex.names = 1,
+  horiz = T
+)
+
+
+#Slide 83
+barplot(
+  table(df_24$Alkohol) / length(df_24$Alkohol), 
+  col = "darkblue", 
+  ylab = "Anzahl", 
+  cex.lab = 1,  # Adjust the value to make it smaller
+  cex.names = 0.4,
+  horiz = T,
+)
+
+#Slide 84
+# Sample data (replace with your actual data)
+# Kiffen <- c("ja", "nein", "ja", "nein", "nein", "ja", "nein", "ja", "nein", "nein")  # Example data
+counts <- table(d24$Kiffen)  # Get counts of each category
+
+# Calculate percentages
+percentages <- round(100 * counts / sum(counts), 1)
+labels <- paste0(percentages, "%")  # Create labels with percentages
+
+# Create a pie chart
+pie(
+  counts, 
+  labels = labels,  # Use percentage labels
+  col = c("skyblue", "orange"),  # Custom colors for each category
+  main = "Schonmal gekifft?”"
+)
+
+# Add the legend to label each category with text
+legend("topright", legend = names(counts), fill = c("skyblue", "orange"))
+
