@@ -1,3 +1,7 @@
+# At the beginning of each script
+source("scripts/0_setup.R")
+
+
 # Filtering rows where "ja" is present in the agreement column
 data_19 <- data_19_raw %>%
   filter(grepl("ja", data_19_raw$X...WICHTIG.....Ich.bin.damit.einverstanden..dass.die.mit.dieser.Umfrage.gesammelten..anonymen..Daten.zum.Zwecke.der.Veranschaulichung.von.Methoden.in.den.Vorlesungen.Statistik.1...2.sowie.in.den.dazugehoerigen.Tutorien.genutzt.werden..Dieses.Einverstaendnis.kann.jederzeit.durch.Nachricht.an.den.Dozenten.widerrufen.werden..Potenziell.sensible.Informationen.werden.nicht.an.Dritte.weitergegeben.., ignore.case = TRUE))
@@ -153,3 +157,20 @@ df_21 = datasets[[3]]
 df_22 = datasets[[4]]
 df_23 = datasets[[5]]
 df_24 = datasets[[6]]
+
+# List of data frame names
+data_frames <- list(df_19, df_20, df_21, df_22, df_23, df_24)
+
+# Apply the division in each data frame
+for (i in seq_along(data_frames)) {
+  data_frames[[i]]$Abi <- data_frames[[i]]$Abi / 10
+}
+
+# If you want to save them back as individual variables:
+df_19 <- data_frames[[1]]
+df_20 <- data_frames[[2]]
+df_21 <- data_frames[[3]]
+df_22 <- data_frames[[4]]
+df_23 <- data_frames[[5]]
+df_24 <- data_frames[[6]]
+

@@ -4,6 +4,7 @@
 library(readr) #part of tidyverse
 library(dplyr)
 library(lubridate)
+library(knitr)
 # Load any other libraries you'll be using
 #
 
