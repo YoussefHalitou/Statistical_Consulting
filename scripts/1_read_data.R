@@ -34,9 +34,9 @@ datasets <- load_datasets()
 
 names(datasets)
 
-data_19 <- datasets$Umfrage19jittered
-data_20 <- datasets$Umfrage20jittered
-data_21 <- datasets$Umfrage21jittered
-data_22 <- datasets$Umfrage22jittered
-data_23 <- datasets$Umfrage23jittered
-data_24 <- datasets$Umfrage24jittered
+data_19_raw <- datasets$Umfrage19jittered
+data_20_raw <- datasets$Umfrage20jittered
+data_21_raw <- datasets$Umfrage21jittered
+data_22_raw <- datasets$Umfrage22jittered
+data_23_raw <- datasets$Umfrage23jittered
+data_24_raw <- datasets$Umfrage24jittered
