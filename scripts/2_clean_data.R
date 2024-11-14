@@ -90,19 +90,66 @@ data_22 <- rename_columns(data_22, dictionary)
 data_23 <- rename_columns(data_23, dictionary)
 data_24 <- rename_columns(data_24, dictionary)
 
+# Define the replacement rules
+replacements <- c(
+  "moechte ich nicht sagen" = NA_character_, # Geschlecht
+  "moechte ich nicht sagen" = NA_character_, # Partnerschaft
+  "wuerde nicht waehlen gehen" = "nicht waehlen",
+  "war nicht waehlen" = "nicht waehlen",
+  "werde nicht waehlen" = "nicht waehlen",
+  "darf nicht waehlen" = "nicht waehlen",
+  "bin Gelegenheitsraucher*in (z.B. bei Partys)" = "nur gelegentlich",
+  "wie bitte" = NA_character_
+)
 
-'
-datasets <- list(Umfrage19, Umfrage20, Umfrage21, Umfrage22, Umfrage23, Umfrage24)
+# List of columns to modify (replace with your actual column names)
+columns_to_modify <- c("Geschlecht", "Partnerschaft", "Partei", "Rauchen", "Kiffen")
 
-all_columns <- unique(unlist(lapply(datasets, colnames)))
 
-datasets <- lapply(datasets, function(df) {
-  missing_cols <- setdiff(all_columns, colnames(df))
-  for (col in missing_cols) {
-    df[[col]] <- "no values in the original dataset"
+# Function to modify a single dataset
+modify_dataset <- function(df) {
+  # Identify columns to modify that are present in the dataset
+  cols_present <- intersect(columns_to_modify, names(df))
+  
+  if (length(cols_present) > 0) {
+    df <- df %>%
+      mutate(across(
+        .cols = all_of(cols_present),
+        .fns = ~ {
+          # Convert to character
+          . <- as.character(.)
+          # Replace values using the replacements vector
+          . <- ifelse(. %in% names(replacements), replacements[.], .)
+          return(.)
+        }
+      ))
   }
   return(df)
-})
+}
 
-merged_dataset <- do.call(rbind, datasets)
-'
+datasets = list(data_19, data_20, data_21, data_22, data_23, data_24)
+
+# Apply the function to each dataset in the list
+datasets <- lapply(datasets, modify_dataset)
+
+
+# Function to display unique values in the modified columns
+check_modifications <- function(df) {
+  cols_present <- intersect(columns_to_modify, names(df))
+  for (col in cols_present) {
+    cat("Unique values in", col, "after modification:\n")
+    print(unique(df[[col]]))
+    cat("\n")
+  }
+}
+
+# Apply the check function to each dataset
+lapply(datasets, check_modifications)
+
+
+df_19 = datasets[[1]]
+df_20 = datasets[[2]]
+df_21 = datasets[[3]]
+df_22 = datasets[[4]]
+df_23 = datasets[[5]]
+df_24 = datasets[[6]]
