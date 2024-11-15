@@ -5,6 +5,7 @@ library(readr) #part of tidyverse
 library(dplyr)
 library(lubridate)
 library(knitr)
+library(ggplot2)
 # Load any other libraries you'll be using
 #
 
