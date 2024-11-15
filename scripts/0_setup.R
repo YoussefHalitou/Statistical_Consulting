@@ -6,6 +6,8 @@ library(dplyr)
 library(lubridate)
 library(knitr)
 library(ggplot2)
+library(gplots)
+library(scatterplot3d)
 # Load any other libraries you'll be using
 #
 
