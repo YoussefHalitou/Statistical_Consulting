@@ -1,7 +1,3 @@
-# At the beginning of each script
-source("scripts/0_setup.R")
-
-
 # Function to read data from CSV without standardizing column names
 read_data <- function(file_path) {
   data <- read_csv(file_path)
