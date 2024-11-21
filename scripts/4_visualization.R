@@ -1,14 +1,38 @@
 # At the beginning of each script
 source("scripts/0_setup.R")
 
+#Slide 74 (tables)
+#Simple tables
+tbl1 = table(df_19$Bildungsgrad)
+tbl2 = table(df_19$Bildungsgrad)/184
 
-#Slide 74
+# Convert tables to data frames
+df_tbl1 <- as.data.frame(tbl1)
+df_tbl2 <- as.data.frame(tbl2)
 
-#simple tables
-table(df_19$Bildungsgrad)
-table(df_19$Bildungsgrad)/184
+# Save the tables as CSV files
+write.csv(df_tbl1, "output/tables/table1.csv", row.names = FALSE)
+write.csv(df_tbl2, "output/tables/table2.csv", row.names = FALSE)
 
-#sophisticated tables
+# Save the tables as txt files
+sink("output/tables/tables_bildungsgrad.txt")
+
+# Write the first table
+cat("Table 1: Absolute Frequencies\n")
+print(tbl1)
+cat("\n")
+
+# Write the second table
+cat("Table 2: Relative Frequencies\n")
+print(tbl2)
+cat("\n")
+
+# Close the connection
+sink()
+
+
+
+#Sophisticated tables
 # Calculate the total number of observations
 total <- nrow(df_19)
 
@@ -25,11 +49,23 @@ education_table <- df_19 %>%
   )
 
 # Display the table using knitr::kable
-kable(
+table = kable(
   education_table,
   col.names = c("Ausprägung", "absolute Häufigkeiten hₖ", "relative Häufigkeiten fₖ (Formel)", "relative Häufigkeiten fₖ (Wert)"),
   caption = paste("Häufigkeitstabelle für Merkmal X = Bildungsgrad der Eltern (n =", total, ").")
 )
+
+
+# Save the tables as txt files
+sink("output/tables/table_bildungsgrad_kable.txt")
+
+# Write the first table
+cat("Table 1: Häufigkeitstabelle")
+print(table)
+cat("\n")
+
+# Close the connection
+sink()
 
 #Slide 75
 # Calculate the total number of observations
@@ -48,18 +84,30 @@ party_table <- df_19 %>%
   )
 
 # Display the table using knitr::kable
-kable(
+party =
+  kable(
   party_table,
   col.names = c("Ausprägung", "absolute Häufigkeiten hₖ", "relative Häufigkeiten fₖ (Formel)", "relative Häufigkeiten fₖ (Wert)"),
   caption = paste("Häufigkeitstabelle für Merkmal X = Parteipräferenz. (n =", total, ").")
 )
 
+
+# Save the tables as txt files
+sink("output/tables/table_party.txt")
+
+#cat("Table 1: Häufigkeitstabelle für ")
+print(table)
+cat("\n")
+
+# Close the connection
+sink()
 #Nicht dargestellt hier: “darf nicht wählen” (2%), “werde nicht wählen” (21%!!). <- entfernen bei Bedarf
 
 #Slide 76
 # Calculate the total number of observations
 total_22 <- nrow(df_22)
 total_23 <- nrow(df_23)
+
 
 # Calculate frequency table for 2022
 party_table_22 <- df_22 %>%
@@ -145,7 +193,6 @@ kable(
 
 #Slide 80
 barplot(table(df_19$Partnerschaft), col = "darkred", ylab = "Anzahl")
-barplot(table(df_19$Partnerschaft), col = "darkred", ylab = "Anzahl", )
 
 # Create a frequency table for the Partnerschaft column
 partnerschaft_counts <- table(df_19$Partnerschaft)
@@ -520,3 +567,4 @@ plot(1:n_rolls, cumulative_proportion, type = "l",
 
 # Add a reference line at 0.5 (the expected probability of rolling an even number)
 abline(h = 0.5, col = "red", lty = 2)
+

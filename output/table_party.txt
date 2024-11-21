@@ -1,0 +1,87 @@
+
+
+Table: Häufigkeitstabelle für Merkmal X = Parteipräferenz, Vergleich Kohorte 2022 (n = 196 ) vs. Kohorte 2023 (n = 186 ).
+
+|Ausprägung         | absolute Häufigkeiten 2022| relative Häufigkeiten fₖ 2022| absolute Häufigkeiten 2023| relative Häufigkeiten fₖ 2023|
+|:------------------|--------------------------:|-----------------------------:|--------------------------:|-----------------------------:|
+|AfD                |                          3|                         0.015|                         13|                         0.070|
+|CDU/CSU            |                         15|                         0.077|                         29|                         0.156|
+|Die Linke          |                         13|                         0.066|                         12|                         0.065|
+|FDP                |                         66|                         0.337|                         33|                         0.177|
+|Gruene             |                         23|                         0.117|                         12|                         0.065|
+|SPD                |                         17|                         0.087|                         20|                         0.108|
+|eine andere Partei |                         10|                         0.051|                         20|                         0.108|
+|nicht waehlen      |                         47|                         0.240|                         44|                         0.237|
+|NA                 |                          2|                         0.010|                          3|                         0.016|
+
+
+Table: Häufigkeitstabelle für Merkmal X = Parteipräferenz, Vergleich Kohorte 2022 (n = 147 ) vs. Kohorte 2023 (n = 139 ).
+
+|Ausprägung         | absolute Häufigkeiten 2022| relative Häufigkeiten fₖ 2022| absolute Häufigkeiten 2023| relative Häufigkeiten fₖ 2023|
+|:------------------|--------------------------:|-----------------------------:|--------------------------:|-----------------------------:|
+|AfD                |                          3|                         0.020|                         13|                         0.094|
+|CDU/CSU            |                         15|                         0.102|                         29|                         0.209|
+|Die Linke          |                         13|                         0.088|                         12|                         0.086|
+|FDP                |                         66|                         0.449|                         33|                         0.237|
+|Gruene             |                         23|                         0.156|                         12|                         0.086|
+|SPD                |                         17|                         0.116|                         20|                         0.144|
+|eine andere Partei |                         10|                         0.068|                         20|                         0.144|
+                                      
+                                       bin nicht sicher ja nein
+  gelegentlich (einige Male pro Monat)                8 26   44
+  haeufig (einige Male pro Woche)                     1  5    6
+  nein, nie                                           0  5   40
+  selten (einige Male pro Jahr)                       4 20   28
+                                      
+                                       bin nicht sicher          ja        nein
+  gelegentlich (einige Male pro Monat)      0.042105263 0.136842105 0.231578947
+  haeufig (einige Male pro Woche)           0.005263158 0.026315789 0.031578947
+  nein, nie                                 0.000000000 0.026315789 0.210526316
+  selten (einige Male pro Jahr)             0.021052632 0.105263158 0.147368421
+                                      
+                                       bin nicht sicher          ja        nein
+  gelegentlich (einige Male pro Monat)      0.042105263 0.136842105 0.231578947
+  haeufig (einige Male pro Woche)           0.005263158 0.026315789 0.031578947
+  nein, nie                                 0.000000000 0.026315789 0.210526316
+  selten (einige Male pro Jahr)             0.021052632 0.105263158 0.147368421
+
+
+Table: Häufigkeitstabelle für Merkmal X = Parteipräferenz, Vergleich Kohorte 2022 (n = 196 ) vs. Kohorte 2023 (n = 186 ).
+
+|Ausprägung         | absolute Häufigkeiten 2022| relative Häufigkeiten fₖ 2022| absolute Häufigkeiten 2023| relative Häufigkeiten fₖ 2023|
+|:------------------|--------------------------:|-----------------------------:|--------------------------:|-----------------------------:|
+|AfD                |                          3|                         0.015|                         13|                         0.070|
+|CDU/CSU            |                         15|                         0.077|                         29|                         0.156|
+|Die Linke          |                         13|                         0.066|                         12|                         0.065|
+|FDP                |                         66|                         0.337|                         33|                         0.177|
+|Gruene             |                         23|                         0.117|                         12|                         0.065|
+|SPD                |                         17|                         0.087|                         20|                         0.108|
+|eine andere Partei |                         10|                         0.051|                         20|                         0.108|
+|nicht waehlen      |                         47|                         0.240|                         44|                         0.237|
+|NA                 |                          2|                         0.010|                          3|                         0.016|
+
+
+Table: Häufigkeitstabelle für Merkmal X = Parteipräferenz, Vergleich Kohorte 2022 (n = 147 ) vs. Kohorte 2023 (n = 139 ).
+
+|Ausprägung         | absolute Häufigkeiten 2022| relative Häufigkeiten fₖ 2022| absolute Häufigkeiten 2023| relative Häufigkeiten fₖ 2023|
+|:------------------|--------------------------:|-----------------------------:|--------------------------:|-----------------------------:|
+|AfD                |                          3|                         0.020|                         13|                         0.094|
+|CDU/CSU            |                         15|                         0.102|                         29|                         0.209|
+|Die Linke          |                         13|                         0.088|                         12|                         0.086|
+|FDP                |                         66|                         0.449|                         33|                         0.237|
+|Gruene             |                         23|                         0.156|                         12|                         0.086|
+|SPD                |                         17|                         0.116|                         20|                         0.144|
+|eine andere Partei |                         10|                         0.068|                         20|                         0.144|
+
+
+Table: Häufigkeitstabelle für Merkmal X = Parteipräferenz, Vergleich Kohorte 2022 (n = 147 ) vs. Kohorte 2023 (n = 139 ).
+
+|Ausprägung         | absolute Häufigkeiten 2022| relative Häufigkeiten fₖ 2022| absolute Häufigkeiten 2023| relative Häufigkeiten fₖ 2023|
+|:------------------|--------------------------:|-----------------------------:|--------------------------:|-----------------------------:|
+|AfD                |                          3|                         0.020|                         13|                         0.094|
+|CDU/CSU            |                         15|                         0.102|                         29|                         0.209|
+|Die Linke          |                         13|                         0.088|                         12|                         0.086|
+|FDP                |                         66|                         0.449|                         33|                         0.237|
+|Gruene             |                         23|                         0.156|                         12|                         0.086|
+|SPD                |                         17|                         0.116|                         20|                         0.144|
+|eine andere Partei |                         10|                         0.068|                         20|                         0.144|

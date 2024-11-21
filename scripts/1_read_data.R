@@ -41,3 +41,4 @@ data_22_raw <- datasets$Umfrage22jittered
 data_23_raw <- datasets$Umfrage23jittered
 data_24_raw <- datasets$Umfrage24jittered
 
+
