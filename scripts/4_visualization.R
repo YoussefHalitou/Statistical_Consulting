@@ -568,3 +568,6 @@ plot(1:n_rolls, cumulative_proportion, type = "l",
 # Add a reference line at 0.5 (the expected probability of rolling an even number)
 abline(h = 0.5, col = "red", lty = 2)
 
+hist(df_19$Abi, breaks = 39)
+
+  
